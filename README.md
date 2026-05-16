@@ -70,12 +70,12 @@ The system is built as a **multi-step AI agent pipeline** using Google ADK and G
 
 ### Team Member and Their Roles
 
-Antony Riziki - Bulider/Engineer
-Stephen Kibue - Researcher
-Pauline Kanyi - Product Engineer
-Eric Mbogo -  UI/UX Designer
-Evans macharia - Project Manager
-Lucy Awino - Product Designer
+- **Antony Riziki** - Bulider/Engineer
+- **Stephen Kibue** - Researcher
+- **Pauline Kanyi** - Product Engineer
+- **Eric Mbogo** -  UI/UX Designer
+- **Evans Macharia** - Project Manager
+- **Lucy Awino** - Product Designer
 
 ### Agents and Their Roles
 
