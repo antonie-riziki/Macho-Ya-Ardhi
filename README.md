@@ -8,36 +8,6 @@ Land fraud is one of Kenya’s most expensive crimes. A single land transaction 
 
 This agent reviews uploaded document photos, extracts key details using Gemini Vision, cross-checks inconsistencies, searches public records such as the Kenya Gazette, and generates a transaction risk report.
 
----
-
-## Suggested Local Solution Names
-
-### Top Picks
-
-1. **HakiArdhi** — land justice
-2. **Mlinzi wa Ardhi** — land guardian
-3. **ArdhiSalama** — safe land
-4. **Macho ya Ardhi** — eyes of the land
-5. **ChekiTitle** — casual Kenyan-style title verification
-
-### Other Name Ideas
-
-- **Thibitisha Ardhi** — verify land
-- **KaguaPlot** — inspect the plot
-- **LindaPlot** — protect the plot
-- **Ukweli wa Ardhi** — truth of land
-- **JiraniCheck** — community-style verification
-- **BomaVerify** — home/land verification
-- **RamaniTrust** — map plus trust
-- **PlotSafi** — clean plot
-- **ArdhiRadar** — detects hidden risk
-- **TitleMlinzi** — title deed guardian
-- **MziziArdhi** — land roots
-- **KipimoArdhi** — land test or measure
-- **UsalamaPlot** — plot safety
-
-Recommended brand name: **HakiArdhi**  
-Recommended product tagline: **Verify before you buy.**
 
 ---
 
