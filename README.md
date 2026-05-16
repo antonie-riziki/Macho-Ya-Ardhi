@@ -1,6 +1,6 @@
 # Mradi wa Ardhi — Land Transaction Risk Agent
 
-# LIVE LIN: https://ai.studio/apps/6949e8da-aee6-4142-b104-eafb62d25ae9
+# LIVE LINK: https://ai.studio/apps/6949e8da-aee6-4142-b104-eafb62d25ae9
 ## the previous repo was private Kindly use this one which is public
 
  *"Ardhi ni uhai"* — Land is life. In Kenya, it's also one of the most dangerous places to put your money.
