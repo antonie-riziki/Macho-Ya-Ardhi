@@ -1,18 +1,19 @@
 from flask import Flask, request
 import sys
+import os
 
-sys.path.insert(1, "/")
+# Ensure local imports work
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from send_sms import chunk_message
 from ai_response import (
-    pregnancy_tips_func,
-    risk_alerts_func,
-    nutrition_advice_func,
+    land_risk_analysis_func,
+    land_buying_tips_func,
+    fraud_reporting_guidance_func,
     facility_locator_func,
 )
 
 app = Flask(__name__)
-
 
 @app.route("/ussd", methods=["POST"])
 def ussd():
@@ -21,88 +22,58 @@ def ussd():
     phone_number = request.values.get("phoneNumber", None)
     text = request.values.get("text", "")
 
-    user_response = text.split("*")
+    parts = text.split("*")
+    level = len(parts) if text else 0
 
     # ----------------------------- #
     # MAIN MENU
     # ----------------------------- #
     if text == "":
-        response = "CON Welcome to InfaNest \n"
-        response += "1. Daily Health Check\n"
-        response += "2. Pregnancy Guidance\n"
-        response += "3. Find Health Facility\n"
-        response += "4. Emergency Help\n"
+        response = "CON Welcome to Mradi wa Ardhi\n"
+        response += "1. Check Parcel Risk\n"
+        response += "2. Land Buying Tips\n"
+        response += "3. Find Land Registry\n"
+        response += "4. Report Fraud / Help\n"
 
     # ----------------------------- #
-    # SECTION 1: DAILY HEALTH CHECK
+    # SECTION 1: CHECK PARCEL RISK
     # ----------------------------- #
-    elif text == "1":
-        response = "CON How are you feeling today?\n"
-        response += "1. Good\n"
-        response += "2. Okay\n"
-        response += "3. Unwell\n"
-
-    elif text == "1*1":
-        response = "CON Any symptoms today?\n"
-        response += "1. None\n"
-        response += "2. Headache\n"
-        response += "3. Bleeding\n"
-        response += "4. Dizziness\n"
-
-    elif text.startswith("1*1*"):
-        response = f"END Thank you. Stay healthy. Tips sent shortly {chunk_message(phone_number, pregnancy_tips_func())}"
-
-    elif text == "1*2":
-        response = f"END Monitor your health closely. Tips sent shortly {chunk_message(phone_number, pregnancy_tips_func())}"
-
-    elif text == "1*3":
-        response = f"END Alert: Seek medical care immediately {chunk_message(phone_number, risk_alerts_func())}"
+    elif parts[0] == "1":
+        if level == 1:
+            response = "CON Enter Parcel Number (e.g. NBI/BLOCK12/34):"
+        elif level == 2:
+            parcel_no = parts[1]
+            analysis = land_risk_analysis_func(parcel_no)
+            response = f"END {chunk_message(phone_number, analysis)}"
 
     # ----------------------------- #
-    # SECTION 2: PREGNANCY GUIDANCE
+    # SECTION 2: LAND BUYING TIPS
     # ----------------------------- #
-    elif text == "2":
-        response = "CON Pregnancy Guidance\n"
-        response += "1. Nutrition Tips\n"
-        response += "2. Exercise Advice\n"
-        response += "3. Medication Reminders\n"
-
-    elif text == "2*1":
-        response = f"END Nutrition tips sent {chunk_message(phone_number, nutrition_advice_func())}"
-
-    elif text == "2*2":
-        response = f"END Exercise guidance sent {chunk_message(phone_number, pregnancy_tips_func())}"
-
-    elif text == "2*3":
-        response = "END Remember to take your supplements daily (Iron, Folic Acid)"
+    elif parts[0] == "2":
+        tips = land_buying_tips_func()
+        response = f"END {chunk_message(phone_number, tips)}"
 
     # ----------------------------- #
-    # SECTION 3: FACILITY LOCATOR
+    # SECTION 3: LAND REGISTRY LOCATOR
     # ----------------------------- #
-    elif text == "3":
-        response = "CON Find Nearby Facility\n"
-        response += "1. Nearest Hospital\n"
-        response += "2. Maternity Clinics\n"
-
-    elif text == "3*1":
-        response = f"END Nearby hospitals sent via SMS {chunk_message(phone_number, facility_locator_func())}"
-
-    elif text == "3*2":
-        response = f"END Nearby maternity clinics sent via SMS {chunk_message(phone_number, facility_locator_func())}"
+    elif parts[0] == "3":
+        registries = facility_locator_func()
+        response = f"END {chunk_message(phone_number, registries)}"
 
     # ----------------------------- #
-    # SECTION 4: EMERGENCY HELP
+    # SECTION 4: REPORT FRAUD / HELP
     # ----------------------------- #
-    elif text == "4":
-        response = "CON Emergency Help\n"
-        response += "1. Call Ambulance\n"
-        response += "2. Find Emergency Facility\n"
-
-    elif text == "4*1":
-        response = "END Please call 999 or 112 immediately for emergency assistance"
-
-    elif text == "4*2":
-        response = f"END Emergency facilities sent {chunk_message(phone_number, facility_locator_func())}"
+    elif parts[0] == "4":
+        if level == 1:
+            response = "CON Fraud & Emergency Help\n"
+            response += "1. How to Report Fraud\n"
+            response += "2. DCI Land Fraud Hotline\n"
+        elif level == 2:
+            if parts[1] == "1":
+                guidance = fraud_reporting_guidance_func()
+                response = f"END {chunk_message(phone_number, guidance)}"
+            elif parts[1] == "2":
+                response = "END Please call 020-2711611 (DCI) or visit the nearest police station."
 
     # ----------------------------- #
     # DEFAULT FALLBACK
@@ -111,7 +82,6 @@ def ussd():
         response = "END Invalid input. Try again."
 
     return response
-
 
 if __name__ == "__main__":
     app.run(debug=True, port=8001)

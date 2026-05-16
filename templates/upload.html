@@ -1,0 +1,769 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Mradi wa Ardhi - New Verification</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed-dim": "#ffb3b4",
+              "on-error": "#ffffff",
+              "secondary-container": "#ffc96f",
+              "error-container": "#ffdad6",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed-variant": "#604100",
+              "on-tertiary": "#ffffff",
+              "surface-container-low": "#f6f3f2",
+              background: "#fcf9f8",
+              "on-secondary": "#ffffff",
+              "secondary-fixed": "#ffdeac",
+              "tertiary-fixed": "#aff1c7",
+              secondary: "#7e5700",
+              "on-tertiary-fixed": "#002111",
+              primary: "#6b0119",
+              "tertiary-container": "#0f5334",
+              "primary-fixed": "#ffdada",
+              "on-surface-variant": "#574142",
+              "surface-bright": "#fcf9f8",
+              surface: "#fcf9f8",
+              "surface-tint": "#a93441",
+              outline: "#8b7171",
+              "tertiary-fixed-dim": "#94d5ac",
+              error: "#ba1a1a",
+              "primary-container": "#8b1e2d",
+              "surface-container-highest": "#e5e2e1",
+              "inverse-primary": "#ffb3b4",
+              "inverse-surface": "#313030",
+              tertiary: "#003a22",
+              "on-error-container": "#93000a",
+              "on-primary-container": "#ff9da0",
+              "surface-variant": "#e5e2e1",
+              "on-secondary-container": "#785300",
+              "on-background": "#1c1b1b",
+              "inverse-on-surface": "#f3f0ef",
+              "on-primary-fixed": "#40000b",
+              "on-tertiary-container": "#85c59e",
+              "on-surface": "#1c1b1b",
+              "secondary-fixed-dim": "#f3be65",
+              "on-primary": "#ffffff",
+              "surface-dim": "#dcd9d9",
+              "on-secondary-fixed": "#281900",
+              "on-tertiary-fixed-variant": "#0c5133",
+              "on-primary-fixed-variant": "#881c2b",
+              "surface-container": "#f0eded",
+              "surface-container-high": "#eae7e7",
+              "outline-variant": "#debfbf",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "margin-mobile": "16px",
+              "unit-sm": "8px",
+              "unit-lg": "24px",
+              "unit-md": "16px",
+              "container-max": "1280px",
+              "unit-xl": "48px",
+              "unit-xs": "4px",
+              gutter: "24px",
+              "margin-desktop": "64px",
+            },
+            fontFamily: {
+              "headline-xl": ["Plus Jakarta Sans"],
+              "label-md": ["Inter"],
+              "body-md": ["Inter"],
+              "headline-md": ["Plus Jakarta Sans"],
+              "headline-lg": ["Plus Jakarta Sans"],
+              "body-sm": ["Inter"],
+              "headline-lg-mobile": ["Plus Jakarta Sans"],
+              "body-lg": ["Inter"],
+              "sublabel-sw": ["Inter"],
+            },
+            fontSize: {
+              "headline-xl": [
+                "48px",
+                {
+                  lineHeight: "56px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-md": [
+                "12px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-md": [
+                "16px",
+                {
+                  lineHeight: "24px",
+                  fontWeight: "400",
+                },
+              ],
+              "headline-md": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-sm": [
+                "14px",
+                {
+                  lineHeight: "20px",
+                  fontWeight: "400",
+                },
+              ],
+              "headline-lg-mobile": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  fontWeight: "700",
+                },
+              ],
+              "body-lg": [
+                "18px",
+                {
+                  lineHeight: "28px",
+                  fontWeight: "400",
+                },
+              ],
+              "sublabel-sw": [
+                "11px",
+                {
+                  lineHeight: "14px",
+                  fontWeight: "500",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background-color: #fcf9f8;
+        color: #1c1b1b;
+      }
+      /* Custom scrollbar for webkit */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f6f3f2;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #e5e2e1;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #dcd9d9;
+      }
+    </style>
+  </head>
+  <body
+    class="font-body-md text-body-md antialiased h-screen overflow-hidden flex"
+  >
+    <!-- SideNavBar -->
+    <nav
+      class="bg-surface-container-low dark:bg-surface-container-lowest w-[240px] h-screen fixed left-0 top-0 overflow-y-auto border-r border-outline-variant dark:border-outline shadow-sm dark:shadow-none flex flex-col justify-between py-6 z-50 hidden md:flex"
+    >
+      <div>
+        <!-- Header -->
+        <div class="px-6 mb-8">
+          <div class="flex items-center gap-3 mb-2">
+            <span
+              class="material-symbols-outlined text-primary text-3xl"
+              style="font-variation-settings: &quot;FILL&quot; 1"
+              >shield</span
+            >
+            <div>
+              <h1
+                class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed-dim"
+              >
+                Mradi wa Ardhi
+              </h1>
+              <p class="font-label-md text-label-md text-on-surface-variant">
+                Verified Security
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Navigation Links -->
+        <ul class="space-y-1">
+          <li>
+            <a
+              class="flex items-center gap-3 text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:bg-surface-container-high dark:hover:bg-surface-container transition-all scale-95 active:scale-90 transition-transform"
+              href="#"
+            >
+              <span class="material-symbols-outlined">dashboard</span>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="flex items-center gap-3 text-primary dark:text-primary-fixed-dim font-bold bg-primary-fixed-dim/20 rounded-lg mx-2 px-4 py-3 scale-95 active:scale-90 transition-transform"
+              href="#"
+            >
+              <span
+                class="material-symbols-outlined"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >verified_user</span
+              >
+              <span>New Verification</span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="flex items-center gap-3 text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:bg-surface-container-high dark:hover:bg-surface-container transition-all scale-95 active:scale-90 transition-transform"
+              href="#"
+            >
+              <span class="material-symbols-outlined">analytics</span>
+              <span>Reports</span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="flex items-center gap-3 text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:bg-surface-container-high dark:hover:bg-surface-container transition-all scale-95 active:scale-90 transition-transform"
+              href="#"
+            >
+              <span class="material-symbols-outlined">smart_toy</span>
+              <span>Chat Agent</span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="flex items-center gap-3 text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:bg-surface-container-high dark:hover:bg-surface-container transition-all scale-95 active:scale-90 transition-transform"
+              href="#"
+            >
+              <span class="material-symbols-outlined">history</span>
+              <span>History</span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="flex items-center gap-3 text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:bg-surface-container-high dark:hover:bg-surface-container transition-all scale-95 active:scale-90 transition-transform"
+              href="#"
+            >
+              <span class="material-symbols-outlined">settings</span>
+              <span>Settings</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- Footer -->
+      <div class="px-4">
+        <button
+          class="flex items-center gap-3 w-full text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:bg-surface-container-high dark:hover:bg-surface-container rounded-lg"
+        >
+          <span class="material-symbols-outlined">language</span>
+          <span class="font-body-sm text-body-sm">Kiswahili Toggle</span>
+        </button>
+      </div>
+    </nav>
+    <!-- TopAppBar -->
+    <header
+      class="bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md fixed top-0 right-0 w-full md:w-[calc(100%-240px)] z-40 border-b border-outline-variant dark:border-outline flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop transition-all"
+    >
+      <!-- Mobile Menu & Title -->
+      <div class="flex items-center gap-4">
+        <button
+          class="md:hidden text-on-surface-variant p-2 hover:bg-surface-container-highest rounded-full transition-all"
+        >
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+        <h2 class="font-headline-md text-headline-md text-on-surface md:hidden">
+          Mradi wa Ardhi
+        </h2>
+      </div>
+      <!-- Global Search (Left aligned as per JSON, but leaving space for potential mobile title) -->
+      <div
+        class="hidden md:flex flex-1 max-w-md focus-within:ring-2 focus-within:ring-primary/20 transition-all rounded-full bg-surface-container-high"
+      >
+        <div class="flex items-center px-4 py-2 w-full">
+          <span class="material-symbols-outlined text-on-surface-variant mr-2"
+            >search</span
+          >
+          <input
+            class="bg-transparent border-none focus:ring-0 w-full font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant"
+            placeholder="Search records, deeds..."
+            type="text"
+          />
+        </div>
+      </div>
+      <!-- Actions -->
+      <div class="flex items-center gap-2">
+        <button
+          class="text-on-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-container-high rounded-full p-2 transition-all"
+        >
+          <span class="material-symbols-outlined">notifications</span>
+        </button>
+        <button
+          class="text-on-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-container-high rounded-full p-2 transition-all"
+        >
+          <span
+            class="material-symbols-outlined"
+            style="font-variation-settings: &quot;FILL&quot; 1"
+            >account_circle</span
+          >
+        </button>
+      </div>
+    </header>
+    <!-- Main Content Canvas -->
+    <main
+      class="mt-16 md:ml-[240px] flex-1 overflow-y-auto h-[calc(100vh-64px)] bg-background"
+    >
+      <div class="max-w-container-max mx-auto p-margin-mobile md:p-gutter">
+        <!-- Header Section -->
+        <div class="mb-unit-xl">
+          <div class="flex items-center gap-2 text-on-surface-variant mb-2">
+            <span
+              class="font-label-md text-label-md uppercase tracking-wider text-primary"
+              >New Verification</span
+            >
+            <span class="material-symbols-outlined text-[16px]"
+              >chevron_right</span
+            >
+            <span class="font-body-sm text-body-sm">Document Upload</span>
+          </div>
+          <h2 class="font-headline-xl text-headline-xl text-on-surface">
+            Initiate Verification
+          </h2>
+          <p
+            class="font-body-lg text-body-lg text-on-surface-variant mt-2 max-w-2xl"
+          >
+            Upload official land documents. Our AI will extract data and
+            cross-check against national registries for authenticity.
+          </p>
+        </div>
+        <!-- Progress Bar -->
+        <div class="mb-unit-xl">
+          <div class="flex items-center justify-between relative">
+            <!-- Connecting Lines -->
+            <div
+              class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1 bg-surface-container-highest rounded-full -z-10"
+            ></div>
+            <div
+              class="absolute left-0 top-1/2 -translate-y-1/2 w-[15%] h-1 bg-primary rounded-full -z-10 transition-all duration-500"
+            ></div>
+            <!-- Step 1 -->
+            <div class="flex flex-col items-center gap-2 bg-background px-2">
+              <div
+                class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md text-label-md shadow-sm"
+              >
+                1
+              </div>
+              <span class="font-label-md text-label-md text-primary"
+                >Upload</span
+              >
+            </div>
+            <!-- Step 2 -->
+            <div class="flex flex-col items-center gap-2 bg-background px-2">
+              <div
+                class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-label-md text-label-md border border-outline-variant"
+              >
+                2
+              </div>
+              <span class="font-label-md text-label-md text-on-surface-variant"
+                >Extract</span
+              >
+            </div>
+            <!-- Step 3 -->
+            <div class="flex flex-col items-center gap-2 bg-background px-2">
+              <div
+                class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-label-md text-label-md border border-outline-variant"
+              >
+                3
+              </div>
+              <span class="font-label-md text-label-md text-on-surface-variant"
+                >Cross-check</span
+              >
+            </div>
+            <!-- Step 4 -->
+            <div class="flex flex-col items-center gap-2 bg-background px-2">
+              <div
+                class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-label-md text-label-md border border-outline-variant"
+              >
+                4
+              </div>
+              <span class="font-label-md text-label-md text-on-surface-variant"
+                >Report</span
+              >
+            </div>
+          </div>
+        </div>
+        <!-- Main Workspace Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+          <!-- Document Upload Grid (Left 8 columns) -->
+          <div class="lg:col-span-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-unit-md">
+              <!-- Title Deed Tile (Uploaded State) -->
+              <div
+                class="bg-surface-container-lowest border border-outline-variant rounded-xl p-unit-md shadow-sm relative overflow-hidden group hover:border-primary transition-colors flex flex-col justify-between h-[280px]"
+              >
+                <!-- Header -->
+                <div
+                  class="flex justify-between items-start mb-4 border-b border-[#FAF7F2] pb-2"
+                >
+                  <div>
+                    <h3
+                      class="font-headline-md text-body-lg font-semibold text-on-surface"
+                    >
+                      Title Deed
+                    </h3>
+                    <p
+                      class="font-body-sm text-body-sm text-on-surface-variant"
+                    >
+                      Hati miliki
+                    </p>
+                  </div>
+                  <div
+                    class="bg-tertiary-fixed/30 text-tertiary-container px-2 py-1 rounded-full flex items-center gap-1 font-label-md text-label-md"
+                  >
+                    <span class="material-symbols-outlined text-[16px]"
+                      >check_circle</span
+                    >
+                    Verified
+                  </div>
+                </div>
+                <!-- Thumbnail / Content -->
+                <div
+                  class="flex-1 flex flex-col items-center justify-center relative rounded-lg overflow-hidden border border-outline-variant/30 bg-surface-container-low mb-4"
+                >
+                  <img
+                    alt="Document thumbnail"
+                    class="w-full h-full object-cover opacity-80"
+                    data-alt="A macro close-up of a high-quality, textured legal document or title deed resting on a pristine modern desk. The scene is lit with bright, high-key studio lighting, creating a crisp and authoritative light-mode aesthetic. A subtle maroon seal is visible, and the overall color palette emphasizes clean whites, warm bone tones, and professional deep grays."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuALg4_IdF-_Ifw-0BDs-W3uxPm3es4_5B2nr6w6SZLR1t30sfYlknSBOUxJoXo0nYo46OTDydkUhVtMIkbMECBvb9mpTW2VNyZNMd4h5tKtYSO5ht_6S07YMPT8braMZoMHCmFcDMd08dOeyo4Wx6oK1iiKnDEa-xHiBu8wx8YwUz_alfp-m5_STPA9JsXW4WqKX2YVfv6VTCL-lSz74O6n1P5Pa2nph-o1t5IMElYV6Rza3mlEDMkZU6G_zKJz_Hl-Cvrn2gO4fc4"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent flex items-end p-3"
+                  >
+                    <div class="w-full flex justify-between items-center">
+                      <span
+                        class="font-body-sm text-body-sm text-on-surface font-medium truncate max-w-[150px]"
+                        >deed_scan_001.pdf</span
+                      >
+                      <div
+                        class="flex items-center gap-1 text-tertiary-container bg-surface-container-lowest rounded px-1"
+                      >
+                        <span class="material-symbols-outlined text-[14px]"
+                          >document_scanner</span
+                        >
+                        <span class="font-label-md text-label-md">99% OCR</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Actions -->
+                <div class="flex gap-2">
+                  <button
+                    class="flex-1 bg-surface-container border border-outline-variant text-on-surface font-label-md text-label-md py-2 rounded-lg hover:bg-surface-container-high transition-colors"
+                  >
+                    Replace
+                  </button>
+                  <button
+                    class="p-2 border border-outline-variant text-on-surface rounded-lg hover:text-error hover:border-error transition-colors"
+                  >
+                    <span class="material-symbols-outlined">delete</span>
+                  </button>
+                </div>
+              </div>
+              <!-- Search Certificate Tile (Error/Flagged State) -->
+              <div
+                class="bg-surface-container-lowest border border-error/50 rounded-xl p-unit-md shadow-sm relative overflow-hidden group flex flex-col justify-between h-[280px]"
+              >
+                <div
+                  class="absolute top-0 right-0 w-16 h-16 bg-error/10 -mr-8 -mt-8 rounded-full blur-xl"
+                ></div>
+                <!-- Header -->
+                <div
+                  class="flex justify-between items-start mb-4 border-b border-[#FAF7F2] pb-2 z-10"
+                >
+                  <div>
+                    <h3
+                      class="font-headline-md text-body-lg font-semibold text-on-surface"
+                    >
+                      Search Certificate
+                    </h3>
+                    <p
+                      class="font-body-sm text-body-sm text-on-surface-variant"
+                    >
+                      Hati ya upekuzi
+                    </p>
+                  </div>
+                  <div
+                    class="bg-error/10 text-error px-2 py-1 rounded-full flex items-center gap-1 font-label-md text-label-md"
+                  >
+                    <span class="material-symbols-outlined text-[16px]"
+                      >error</span
+                    >
+                    Flagged
+                  </div>
+                </div>
+                <!-- Thumbnail / Content -->
+                <div
+                  class="flex-1 flex flex-col items-center justify-center relative rounded-lg overflow-hidden border border-error/30 bg-error/5 mb-4 z-10"
+                >
+                  <div class="text-center p-4">
+                    <span
+                      class="material-symbols-outlined text-error text-4xl mb-2"
+                      >blur_on</span
+                    >
+                    <p class="font-label-md text-label-md text-error">
+                      Low Resolution Detected
+                    </p>
+                    <div
+                      class="mt-2 flex items-center justify-center gap-1 text-on-surface-variant"
+                    >
+                      <span class="material-symbols-outlined text-[14px]"
+                        >document_scanner</span
+                      >
+                      <span class="font-label-md text-label-md">64% OCR</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Actions -->
+                <div class="flex gap-2 z-10">
+                  <button
+                    class="flex-1 bg-error text-on-error font-label-md text-label-md py-2 rounded-lg hover:bg-error/90 transition-colors shadow-sm"
+                  >
+                    Re-upload Clearer Copy
+                  </button>
+                </div>
+              </div>
+              <!-- Rates Clearance Tile (Empty State) -->
+              <div
+                class="bg-surface-container-lowest border-2 border-dashed border-outline-variant rounded-xl p-unit-md hover:border-primary/50 hover:bg-surface-container-low transition-all cursor-pointer flex flex-col items-center justify-center h-[280px] text-center"
+              >
+                <div
+                  class="w-16 h-16 bg-surface-container rounded-full flex items-center justify-center mb-4 text-primary"
+                >
+                  <span class="material-symbols-outlined text-3xl"
+                    >upload_file</span
+                  >
+                </div>
+                <h3
+                  class="font-headline-md text-body-lg font-semibold text-on-surface mb-1"
+                >
+                  Rates Clearance
+                </h3>
+                <p
+                  class="font-body-sm text-body-sm text-on-surface-variant mb-4"
+                >
+                  Cheti cha malipo ya ardhi
+                </p>
+                <p
+                  class="font-body-sm text-body-sm text-on-surface-variant max-w-[200px]"
+                >
+                  Drag and drop file here or
+                  <span class="text-primary font-medium">browse</span>
+                </p>
+              </div>
+              <!-- Seller's ID Tile (Empty State) -->
+              <div
+                class="bg-surface-container-lowest border-2 border-dashed border-outline-variant rounded-xl p-unit-md hover:border-primary/50 hover:bg-surface-container-low transition-all cursor-pointer flex flex-col items-center justify-center h-[280px] text-center"
+              >
+                <div
+                  class="w-16 h-16 bg-surface-container rounded-full flex items-center justify-center mb-4 text-primary"
+                >
+                  <span class="material-symbols-outlined text-3xl">badge</span>
+                </div>
+                <h3
+                  class="font-headline-md text-body-lg font-semibold text-on-surface mb-1"
+                >
+                  Seller's ID
+                </h3>
+                <p
+                  class="font-body-sm text-body-sm text-on-surface-variant mb-4"
+                >
+                  Kitambulisho cha muuzaji
+                </p>
+                <p
+                  class="font-body-sm text-body-sm text-on-surface-variant max-w-[200px]"
+                >
+                  Drag and drop file here or
+                  <span class="text-primary font-medium">browse</span>
+                </p>
+              </div>
+            </div>
+            <!-- Action Bottom Bar -->
+            <div
+              class="mt-8 flex justify-end gap-4 border-t border-outline-variant pt-4"
+            >
+              <button
+                class="px-6 py-2 border border-primary text-primary font-label-md text-label-md rounded-lg hover:bg-primary/5 transition-colors bg-transparent"
+              >
+                Cancel
+              </button>
+              <button
+                class="px-6 py-2 bg-primary text-on-primary font-label-md text-label-md rounded-lg hover:bg-primary-container transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Proceed to Extraction
+              </button>
+            </div>
+          </div>
+          <!-- Right Rail: Helpers (Right 4 columns) -->
+          <div class="lg:col-span-4 space-y-unit-md">
+            <!-- Capture Tips Panel -->
+            <div
+              class="bg-surface-container-lowest border border-outline-variant rounded-xl p-unit-md shadow-sm"
+            >
+              <div
+                class="flex items-center gap-2 mb-4 border-b border-[#FAF7F2] pb-3"
+              >
+                <span class="material-symbols-outlined text-primary"
+                  >lightbulb</span
+                >
+                <h3
+                  class="font-headline-md text-body-lg font-semibold text-on-surface"
+                >
+                  Capture Tips
+                </h3>
+              </div>
+              <ul class="space-y-4">
+                <li class="flex gap-3 items-start">
+                  <span
+                    class="material-symbols-outlined text-tertiary text-[20px] mt-0.5"
+                    >wb_sunny</span
+                  >
+                  <div>
+                    <p class="font-label-md text-label-md text-on-surface">
+                      Good Lighting
+                    </p>
+                    <p
+                      class="font-body-sm text-body-sm text-on-surface-variant"
+                    >
+                      Ensure natural light, avoid shadows over the document.
+                    </p>
+                  </div>
+                </li>
+                <li class="flex gap-3 items-start">
+                  <span
+                    class="material-symbols-outlined text-tertiary text-[20px] mt-0.5"
+                    >crop</span
+                  >
+                  <div>
+                    <p class="font-label-md text-label-md text-on-surface">
+                      All Corners Visible
+                    </p>
+                    <p
+                      class="font-body-sm text-body-sm text-on-surface-variant"
+                    >
+                      Place on a dark background; ensure all 4 edges are in
+                      frame.
+                    </p>
+                  </div>
+                </li>
+                <li class="flex gap-3 items-start">
+                  <span
+                    class="material-symbols-outlined text-tertiary text-[20px] mt-0.5"
+                    >center_focus_strong</span
+                  >
+                  <div>
+                    <p class="font-label-md text-label-md text-on-surface">
+                      High Resolution
+                    </p>
+                    <p
+                      class="font-body-sm text-body-sm text-on-surface-variant"
+                    >
+                      Text must be perfectly legible when zoomed in.
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <!-- FAQ Accordion -->
+            <div
+              class="bg-surface-container-lowest border border-outline-variant rounded-xl p-unit-md shadow-sm"
+            >
+              <div
+                class="flex items-center gap-2 mb-4 border-b border-[#FAF7F2] pb-3"
+              >
+                <span class="material-symbols-outlined text-primary">help</span>
+                <h3
+                  class="font-headline-md text-body-lg font-semibold text-on-surface"
+                >
+                  Common Questions
+                </h3>
+              </div>
+              <div class="space-y-2">
+                <!-- Accordion Item 1 -->
+                <details
+                  class="group bg-surface-container-low rounded-lg"
+                  open=""
+                >
+                  <summary
+                    class="flex justify-between items-center font-label-md text-label-md text-on-surface cursor-pointer p-3 list-none"
+                  >
+                    <span>What if I don't have Rates Clearance?</span>
+                    <span
+                      class="material-symbols-outlined transition group-open:rotate-180"
+                      >expand_more</span
+                    >
+                  </summary>
+                  <div
+                    class="text-on-surface-variant font-body-sm text-body-sm p-3 pt-0 border-t border-outline-variant/20 mt-1"
+                  >
+                    You can proceed with extraction, but full verification will
+                    be marked as 'Pending' until all mandatory county documents
+                    are provided.
+                  </div>
+                </details>
+                <!-- Accordion Item 2 -->
+                <details class="group bg-surface-container-low rounded-lg">
+                  <summary
+                    class="flex justify-between items-center font-label-md text-label-md text-on-surface cursor-pointer p-3 list-none"
+                  >
+                    <span>Supported file formats?</span>
+                    <span
+                      class="material-symbols-outlined transition group-open:rotate-180"
+                      >expand_more</span
+                    >
+                  </summary>
+                  <div
+                    class="text-on-surface-variant font-body-sm text-body-sm p-3 pt-0 border-t border-outline-variant/20 mt-1 hidden group-open:block"
+                  >
+                    We accept PDF, JPG, and PNG files up to 10MB each.
+                  </div>
+                </details>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

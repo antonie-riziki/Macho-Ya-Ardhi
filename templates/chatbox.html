@@ -1,0 +1,720 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Chat Agent - Mradi wa Ardhi</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed-dim": "#ffb3b4",
+              "on-error": "#ffffff",
+              "secondary-container": "#ffc96f",
+              "error-container": "#ffdad6",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed-variant": "#604100",
+              "on-tertiary": "#ffffff",
+              "surface-container-low": "#f6f3f2",
+              background: "#fcf9f8",
+              "on-secondary": "#ffffff",
+              "secondary-fixed": "#ffdeac",
+              "tertiary-fixed": "#aff1c7",
+              secondary: "#7e5700",
+              "on-tertiary-fixed": "#002111",
+              primary: "#6b0119",
+              "tertiary-container": "#0f5334",
+              "primary-fixed": "#ffdada",
+              "on-surface-variant": "#574142",
+              "surface-bright": "#fcf9f8",
+              surface: "#fcf9f8",
+              "surface-tint": "#a93441",
+              outline: "#8b7171",
+              "tertiary-fixed-dim": "#94d5ac",
+              error: "#ba1a1a",
+              "primary-container": "#8b1e2d",
+              "surface-container-highest": "#e5e2e1",
+              "inverse-primary": "#ffb3b4",
+              "inverse-surface": "#313030",
+              tertiary: "#003a22",
+              "on-error-container": "#93000a",
+              "on-primary-container": "#ff9da0",
+              "surface-variant": "#e5e2e1",
+              "on-secondary-container": "#785300",
+              "on-background": "#1c1b1b",
+              "inverse-on-surface": "#f3f0ef",
+              "on-primary-fixed": "#40000b",
+              "on-tertiary-container": "#85c59e",
+              "on-surface": "#1c1b1b",
+              "secondary-fixed-dim": "#f3be65",
+              "on-primary": "#ffffff",
+              "surface-dim": "#dcd9d9",
+              "on-secondary-fixed": "#281900",
+              "on-tertiary-fixed-variant": "#0c5133",
+              "on-primary-fixed-variant": "#881c2b",
+              "surface-container": "#f0eded",
+              "surface-container-high": "#eae7e7",
+              "outline-variant": "#debfbf",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "margin-mobile": "16px",
+              "unit-sm": "8px",
+              "unit-lg": "24px",
+              "unit-md": "16px",
+              "container-max": "1280px",
+              "unit-xl": "48px",
+              "unit-xs": "4px",
+              gutter: "24px",
+              "margin-desktop": "64px",
+            },
+            fontFamily: {
+              "headline-xl": ["Plus Jakarta Sans"],
+              "label-md": ["Inter"],
+              "body-md": ["Inter"],
+              "headline-md": ["Plus Jakarta Sans"],
+              "headline-lg": ["Plus Jakarta Sans"],
+              "body-sm": ["Inter"],
+              "headline-lg-mobile": ["Plus Jakarta Sans"],
+              "body-lg": ["Inter"],
+              "sublabel-sw": ["Inter"],
+            },
+            fontSize: {
+              "headline-xl": [
+                "48px",
+                {
+                  lineHeight: "56px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-md": [
+                "12px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+              "headline-md": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "600" },
+              ],
+              "headline-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+              "headline-lg-mobile": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "700" },
+              ],
+              "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+              "sublabel-sw": [
+                "11px",
+                { lineHeight: "14px", fontWeight: "500" },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .material-symbols-outlined.fill-icon {
+        font-variation-settings: "FILL" 1;
+      }
+      /* Custom scrollbar for chat */
+      .chat-scroll::-webkit-scrollbar {
+        width: 6px;
+      }
+      .chat-scroll::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .chat-scroll::-webkit-scrollbar-thumb {
+        background-color: #dcd9d9;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background text-on-background font-body-md text-body-md h-screen overflow-hidden flex"
+  >
+    <!-- SideNavBar (Shared Component) -->
+    <nav
+      class="bg-surface-container-low dark:bg-surface-container-lowest w-[240px] h-screen fixed left-0 top-0 overflow-y-auto border-r border-outline-variant dark:border-outline shadow-sm dark:shadow-none flex flex-col justify-between py-6 z-50 hidden md:flex"
+    >
+      <div>
+        <div class="px-6 mb-8">
+          <div class="flex items-center gap-3">
+            <div
+              class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-on-primary"
+            >
+              <span class="material-symbols-outlined fill-icon">shield</span>
+            </div>
+            <div>
+              <h1
+                class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed-dim text-lg"
+              >
+                Mradi wa Ardhi
+              </h1>
+              <p class="font-label-md text-label-md text-on-surface-variant">
+                Verified Security
+              </p>
+            </div>
+          </div>
+        </div>
+        <ul class="flex flex-col gap-2 px-2">
+          <!-- Dashboard -->
+          <li>
+            <a
+              class="flex items-center gap-3 text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:bg-surface-container-high dark:hover:bg-surface-container transition-all rounded-lg scale-95 active:scale-90 transition-transform"
+              href="#"
+            >
+              <span class="material-symbols-outlined">dashboard</span>
+              <span class="font-body-md text-body-md font-medium"
+                >Dashboard</span
+              >
+            </a>
+          </li>
+          <!-- New Verification -->
+          <li>
+            <a
+              class="flex items-center gap-3 text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:bg-surface-container-high dark:hover:bg-surface-container transition-all rounded-lg scale-95 active:scale-90 transition-transform"
+              href="#"
+            >
+              <span class="material-symbols-outlined">verified_user</span>
+              <span class="font-body-md text-body-md font-medium"
+                >New Verification</span
+              >
+            </a>
+          </li>
+          <!-- Reports -->
+          <li>
+            <a
+              class="flex items-center gap-3 text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:bg-surface-container-high dark:hover:bg-surface-container transition-all rounded-lg scale-95 active:scale-90 transition-transform"
+              href="#"
+            >
+              <span class="material-symbols-outlined">analytics</span>
+              <span class="font-body-md text-body-md font-medium">Reports</span>
+            </a>
+          </li>
+          <!-- Chat Agent (Active) -->
+          <li>
+            <a
+              class="flex items-center gap-3 text-primary dark:text-primary-fixed-dim font-bold bg-primary-fixed-dim/20 rounded-lg mx-2 px-4 py-3 scale-95 active:scale-90 transition-transform"
+              href="#"
+            >
+              <span class="material-symbols-outlined fill-icon">smart_toy</span>
+              <span class="font-body-md text-body-md">Chat Agent</span>
+            </a>
+          </li>
+          <!-- History -->
+          <li>
+            <a
+              class="flex items-center gap-3 text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:bg-surface-container-high dark:hover:bg-surface-container transition-all rounded-lg scale-95 active:scale-90 transition-transform"
+              href="#"
+            >
+              <span class="material-symbols-outlined">history</span>
+              <span class="font-body-md text-body-md font-medium">History</span>
+            </a>
+          </li>
+          <!-- Settings -->
+          <li>
+            <a
+              class="flex items-center gap-3 text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:bg-surface-container-high dark:hover:bg-surface-container transition-all rounded-lg scale-95 active:scale-90 transition-transform"
+              href="#"
+            >
+              <span class="material-symbols-outlined">settings</span>
+              <span class="font-body-md text-body-md font-medium"
+                >Settings</span
+              >
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="px-4">
+        <button
+          class="flex items-center gap-3 w-full text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:bg-surface-container-high dark:hover:bg-surface-container transition-all rounded-lg scale-95 active:scale-90 transition-transform"
+        >
+          <span class="material-symbols-outlined">language</span>
+          <span class="font-body-md text-body-md font-medium"
+            >Kiswahili Toggle</span
+          >
+        </button>
+      </div>
+    </nav>
+    <!-- Main Content Wrapper -->
+    <div class="flex-1 flex flex-col md:ml-[240px] h-screen relative">
+      <!-- TopAppBar (Shared Component) -->
+      <header
+        class="bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md fixed top-0 right-0 w-full md:w-[calc(100%-240px)] z-40 border-b border-outline-variant dark:border-outline flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop"
+      >
+        <div
+          class="flex items-center gap-4 focus-within:ring-2 focus-within:ring-primary/20 transition-all rounded-lg bg-surface-container-lowest px-4 py-2 border border-outline-variant w-full max-w-md"
+        >
+          <span class="material-symbols-outlined text-on-surface-variant"
+            >search</span
+          >
+          <input
+            class="bg-transparent border-none focus:outline-none focus:ring-0 text-on-surface w-full font-body-md text-body-md placeholder-on-surface-variant"
+            placeholder="Search records, plots..."
+            type="text"
+          />
+        </div>
+        <div class="flex items-center gap-2">
+          <button
+            class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-container-high rounded-full p-2 transition-all"
+          >
+            <span class="material-symbols-outlined">notifications</span>
+          </button>
+          <button
+            class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-container-high rounded-full p-2 transition-all"
+          >
+            <span class="material-symbols-outlined">account_circle</span>
+          </button>
+        </div>
+      </header>
+      <!-- Main Workspace -->
+      <main
+        class="flex-1 mt-16 p-margin-mobile md:p-gutter overflow-hidden flex flex-col md:flex-row gap-6 max-w-container-max mx-auto w-full"
+      >
+        <!-- Left Column: Chat Thread (70%) -->
+        <div
+          class="w-full md:w-[70%] flex flex-col bg-surface-container-lowest rounded-xl border border-outline-variant shadow-[0_2px_4px_rgba(0,0,0,0.04)] overflow-hidden h-full"
+        >
+          <!-- Chat Header -->
+          <div
+            class="px-6 py-4 border-b border-outline-variant bg-surface flex justify-between items-center"
+          >
+            <div>
+              <h2
+                class="font-headline-md text-headline-md text-on-surface flex items-center gap-2"
+              >
+                <span class="material-symbols-outlined text-primary"
+                  >smart_toy</span
+                >
+                Ardhi Intelligence
+              </h2>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">
+                Assisting with Plot LRN-8492/B
+              </p>
+            </div>
+            <span
+              class="px-3 py-1 bg-tertiary-fixed/20 text-tertiary font-label-md text-label-md rounded-full flex items-center gap-1"
+            >
+              <span class="material-symbols-outlined text-[14px]">bolt</span>
+              Active
+            </span>
+          </div>
+          <!-- Chat History -->
+          <div
+            class="flex-1 overflow-y-auto p-6 flex flex-col gap-6 chat-scroll bg-background"
+          >
+            <!-- AI Greeting -->
+            <div class="flex gap-4">
+              <div
+                class="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-1"
+              >
+                <span class="material-symbols-outlined text-on-primary text-sm"
+                  >smart_toy</span
+                >
+              </div>
+              <div class="flex flex-col gap-2 max-w-[80%]">
+                <div
+                  class="bg-surface border border-outline-variant rounded-2xl rounded-tl-sm px-5 py-4 text-on-surface shadow-sm"
+                >
+                  <p class="mb-2">
+                    Habari! I am the Ardhi Intelligence Agent. I have loaded the
+                    context for <strong>Plot LRN-8492/B</strong>.
+                  </p>
+                  <p>How can I assist you with this verification today?</p>
+                </div>
+              </div>
+            </div>
+            <!-- User Message -->
+            <div class="flex gap-4 flex-row-reverse">
+              <div
+                class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center flex-shrink-0 mt-1"
+              >
+                <span class="material-symbols-outlined text-on-surface text-sm"
+                  >person</span
+                >
+              </div>
+              <div class="flex flex-col gap-2 max-w-[80%] items-end">
+                <div
+                  class="bg-primary-container text-on-primary-container rounded-2xl rounded-tr-sm px-5 py-4 shadow-sm"
+                >
+                  <p>
+                    Je, kuna rekodi yoyote ya mzozo wa kimahakama (court
+                    dispute) kwenye kiwanja hiki?
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- AI Response with Citations -->
+            <div class="flex gap-4">
+              <div
+                class="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-1"
+              >
+                <span class="material-symbols-outlined text-on-primary text-sm"
+                  >smart_toy</span
+                >
+              </div>
+              <div class="flex flex-col gap-2 max-w-[80%]">
+                <div
+                  class="bg-surface border border-outline-variant rounded-2xl rounded-tl-sm px-5 py-4 text-on-surface shadow-sm"
+                >
+                  <p class="mb-4">
+                    Ndio, nimepata rekodi moja inayohusiana na mzozo wa
+                    kimahakama kwa kiwanja <strong>LRN-8492/B</strong>.
+                  </p>
+                  <p class="mb-4">
+                    Kuna kesi iliyosajiliwa mwaka 2018 katika Mahakama Kuu ya
+                    Ardhi kuhusu mipaka upande wa mashariki. Kesi hii
+                    ilitatuliwa mwaka 2020.
+                  </p>
+                  <!-- Citation Chips -->
+                  <div
+                    class="flex flex-wrap gap-2 mt-4 pt-3 border-t border-surface-container-highest"
+                  >
+                    <button
+                      class="flex items-center gap-1.5 px-3 py-1.5 bg-surface-container-low border border-outline-variant rounded-md text-on-surface-variant font-label-md text-label-md hover:bg-surface-container transition-colors"
+                    >
+                      <span class="material-symbols-outlined text-[16px]"
+                        >gavel</span
+                      >
+                      Case File ELC-2018-09
+                    </button>
+                    <button
+                      class="flex items-center gap-1.5 px-3 py-1.5 bg-surface-container-low border border-outline-variant rounded-md text-on-surface-variant font-label-md text-label-md hover:bg-surface-container transition-colors"
+                    >
+                      <span class="material-symbols-outlined text-[16px]"
+                        >description</span
+                      >
+                      Resolution Decree 2020
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- User Message -->
+            <div class="flex gap-4 flex-row-reverse">
+              <div
+                class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center flex-shrink-0 mt-1"
+              >
+                <span class="material-symbols-outlined text-on-surface text-sm"
+                  >person</span
+                >
+              </div>
+              <div class="flex flex-col gap-2 max-w-[80%] items-end">
+                <div
+                  class="bg-primary-container text-on-primary-container rounded-2xl rounded-tr-sm px-5 py-4 shadow-sm"
+                >
+                  <p>Can you summarize the resolution decree?</p>
+                </div>
+              </div>
+            </div>
+            <!-- AI Typing Indicator -->
+            <div class="flex gap-4">
+              <div
+                class="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-1"
+              >
+                <span class="material-symbols-outlined text-on-primary text-sm"
+                  >smart_toy</span
+                >
+              </div>
+              <div class="flex flex-col gap-2 max-w-[80%]">
+                <div
+                  class="bg-surface border border-outline-variant rounded-2xl rounded-tl-sm px-5 py-4 text-on-surface shadow-sm flex gap-1 items-center"
+                >
+                  <div
+                    class="w-2 h-2 rounded-full bg-outline-variant animate-pulse"
+                  ></div>
+                  <div
+                    class="w-2 h-2 rounded-full bg-outline-variant animate-pulse delay-75"
+                  ></div>
+                  <div
+                    class="w-2 h-2 rounded-full bg-outline-variant animate-pulse delay-150"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Input Area -->
+          <div class="p-4 bg-surface border-t border-outline-variant">
+            <div
+              class="relative flex items-end gap-2 bg-surface-container-lowest border border-outline-variant rounded-xl p-2 focus-within:border-primary focus-within:ring-1 focus-within:ring-primary/20 transition-all"
+            >
+              <button
+                class="p-2 text-on-surface-variant hover:bg-surface-container rounded-lg transition-colors mb-0.5"
+              >
+                <span class="material-symbols-outlined">attach_file</span>
+              </button>
+              <textarea
+                class="flex-1 bg-transparent border-none focus:ring-0 resize-none py-2.5 font-body-md text-on-surface placeholder-on-surface-variant max-h-32 chat-scroll"
+                placeholder="Uliza swali au andika ujumbe..."
+                rows="1"
+              ></textarea>
+              <button
+                class="p-2 bg-primary text-on-primary rounded-lg hover:bg-primary/90 transition-colors mb-0.5 flex items-center justify-center"
+              >
+                <span class="material-symbols-outlined">send</span>
+              </button>
+            </div>
+            <div class="flex justify-between items-center mt-2 px-2">
+              <span class="font-label-md text-label-md text-on-surface-variant"
+                >AI responses may need verification</span
+              >
+              <div class="flex gap-2">
+                <span
+                  class="font-sublabel-sw text-sublabel-sw text-primary px-2 py-0.5 bg-primary/10 rounded"
+                  >EN</span
+                >
+                <span
+                  class="font-sublabel-sw text-sublabel-sw text-on-surface-variant px-2 py-0.5 border border-outline-variant rounded"
+                  >SW</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Right Column: Context Panel (30%) -->
+        <div
+          class="w-full md:w-[30%] flex flex-col gap-6 overflow-y-auto chat-scroll pb-6"
+        >
+          <!-- Parcel Context Card -->
+          <div
+            class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-[0_2px_4px_rgba(0,0,0,0.04)] overflow-hidden flex flex-col"
+          >
+            <div
+              class="px-4 py-3 border-b border-surface-container-high bg-surface flex justify-between items-center"
+            >
+              <h3
+                class="font-headline-md text-body-md font-semibold text-on-surface"
+              >
+                Active Context
+              </h3>
+              <button
+                class="text-on-surface-variant hover:text-primary transition-colors"
+              >
+                <span class="material-symbols-outlined text-[20px]"
+                  >open_in_new</span
+                >
+              </button>
+            </div>
+            <!-- Map Placeholder -->
+            <div class="h-40 w-full relative bg-surface-container">
+              <div
+                class="absolute inset-0 opacity-20"
+                style="
+                  background-image: radial-gradient(
+                    #8b1e2d 1px,
+                    transparent 1px
+                  );
+                  background-size: 16px 16px;
+                "
+              ></div>
+              <div
+                class="absolute inset-0 flex items-center justify-center flex-col"
+              >
+                <span
+                  class="material-symbols-outlined text-outline text-3xl mb-1"
+                  >map</span
+                >
+                <span class="font-label-md text-label-md text-outline"
+                  >Map Data: Nairobi Region</span
+                >
+              </div>
+              <!-- Simulated Plot Polygon -->
+              <svg
+                class="absolute inset-0 w-full h-full"
+                preserveaspectratio="none"
+              >
+                <polygon
+                  fill="rgba(139, 30, 45, 0.2)"
+                  points="50,40 120,30 140,80 60,100"
+                  stroke="#8b1e2d"
+                  stroke-width="2"
+                ></polygon>
+              </svg>
+            </div>
+            <div class="p-4 flex flex-col gap-4">
+              <div>
+                <p
+                  class="font-label-md text-label-md text-on-surface-variant mb-1 uppercase tracking-wider"
+                >
+                  Plot Number
+                </p>
+                <p class="font-body-md text-on-surface font-medium">
+                  LRN-8492/B
+                </p>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <p
+                    class="font-label-md text-label-md text-on-surface-variant mb-1 uppercase tracking-wider"
+                  >
+                    Registry
+                  </p>
+                  <p class="font-body-md text-on-surface">Nairobi Central</p>
+                </div>
+                <div>
+                  <p
+                    class="font-label-md text-label-md text-on-surface-variant mb-1 uppercase tracking-wider"
+                  >
+                    Size
+                  </p>
+                  <p class="font-body-md text-on-surface">0.45 HA</p>
+                </div>
+              </div>
+              <div class="pt-3 border-t border-surface-container-high">
+                <p
+                  class="font-label-md text-label-md text-on-surface-variant mb-2 uppercase tracking-wider"
+                >
+                  Current Status
+                </p>
+                <div
+                  class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-tertiary-fixed/20 text-tertiary rounded-full font-label-md text-label-md"
+                >
+                  <span class="material-symbols-outlined text-[14px]"
+                    >check_circle</span
+                  >
+                  Verified (Imethibitishwa)
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Suggested Prompts -->
+          <div
+            class="bg-surface rounded-xl border border-outline-variant shadow-sm p-4"
+          >
+            <h3
+              class="font-headline-md text-body-md font-semibold text-on-surface flex items-center gap-2 mb-4"
+            >
+              <span class="material-symbols-outlined text-primary text-[20px]"
+                >lightbulb</span
+              >
+              Suggested Prompts
+            </h3>
+            <div class="flex flex-col gap-2">
+              <button
+                class="text-left px-3 py-2.5 bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface font-body-sm hover:border-primary hover:bg-primary-fixed-dim/10 transition-colors flex justify-between items-center group"
+              >
+                <span>Check complete court history</span>
+                <span
+                  class="material-symbols-outlined text-[18px] text-outline opacity-0 group-hover:opacity-100 transition-opacity"
+                  >arrow_forward</span
+                >
+              </button>
+              <button
+                class="text-left px-3 py-2.5 bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface font-body-sm hover:border-primary hover:bg-primary-fixed-dim/10 transition-colors flex justify-between items-center group"
+              >
+                <span>Verify previous ownership transfers</span>
+                <span
+                  class="material-symbols-outlined text-[18px] text-outline opacity-0 group-hover:opacity-100 transition-opacity"
+                  >arrow_forward</span
+                >
+              </button>
+              <button
+                class="text-left px-3 py-2.5 bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface font-body-sm hover:border-primary hover:bg-primary-fixed-dim/10 transition-colors flex justify-between items-center group"
+              >
+                <span>Tafuta madeni ya kodi (Tax arrears)</span>
+                <span
+                  class="material-symbols-outlined text-[18px] text-outline opacity-0 group-hover:opacity-100 transition-opacity"
+                  >arrow_forward</span
+                >
+              </button>
+            </div>
+          </div>
+          <!-- Document References -->
+          <div
+            class="bg-surface rounded-xl border border-outline-variant shadow-sm p-4"
+          >
+            <h3
+              class="font-headline-md text-body-md font-semibold text-on-surface flex items-center gap-2 mb-4"
+            >
+              <span
+                class="material-symbols-outlined text-on-surface-variant text-[20px]"
+                >folder</span
+              >
+              Related Documents
+            </h3>
+            <div class="flex flex-col gap-3">
+              <div
+                class="flex items-center gap-3 p-2 hover:bg-surface-container-low rounded-lg transition-colors cursor-pointer"
+              >
+                <div
+                  class="w-10 h-10 rounded bg-surface-container border border-outline-variant flex items-center justify-center text-on-surface-variant"
+                >
+                  <span class="material-symbols-outlined">description</span>
+                </div>
+                <div class="flex-1 overflow-hidden">
+                  <p class="font-body-sm text-on-surface truncate">
+                    Title_Deed_Scan_2015.pdf
+                  </p>
+                  <p
+                    class="font-label-md text-label-md text-on-surface-variant"
+                  >
+                    2.4 MB • Official Copy
+                  </p>
+                </div>
+              </div>
+              <div
+                class="flex items-center gap-3 p-2 hover:bg-surface-container-low rounded-lg transition-colors cursor-pointer"
+              >
+                <div
+                  class="w-10 h-10 rounded bg-surface-container border border-outline-variant flex items-center justify-center text-on-surface-variant"
+                >
+                  <span class="material-symbols-outlined">map</span>
+                </div>
+                <div class="flex-1 overflow-hidden">
+                  <p class="font-body-sm text-on-surface truncate">
+                    Survey_Map_Nrb_Central.pdf
+                  </p>
+                  <p
+                    class="font-label-md text-label-md text-on-surface-variant"
+                  >
+                    4.1 MB • Survey Records
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

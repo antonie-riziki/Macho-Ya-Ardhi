@@ -1,0 +1,537 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Parcel Detail Extraction - Mradi wa Ardhi</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed-dim": "#ffb3b4",
+              "on-error": "#ffffff",
+              "secondary-container": "#ffc96f",
+              "error-container": "#ffdad6",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed-variant": "#604100",
+              "on-tertiary": "#ffffff",
+              "surface-container-low": "#f6f3f2",
+              background: "#fcf9f8",
+              "on-secondary": "#ffffff",
+              "secondary-fixed": "#ffdeac",
+              "tertiary-fixed": "#aff1c7",
+              secondary: "#7e5700",
+              "on-tertiary-fixed": "#002111",
+              primary: "#6b0119",
+              "tertiary-container": "#0f5334",
+              "primary-fixed": "#ffdada",
+              "on-surface-variant": "#574142",
+              "surface-bright": "#fcf9f8",
+              surface: "#fcf9f8",
+              "surface-tint": "#a93441",
+              outline: "#8b7171",
+              "tertiary-fixed-dim": "#94d5ac",
+              error: "#ba1a1a",
+              "primary-container": "#8b1e2d",
+              "surface-container-highest": "#e5e2e1",
+              "inverse-primary": "#ffb3b4",
+              "inverse-surface": "#313030",
+              tertiary: "#003a22",
+              "on-error-container": "#93000a",
+              "on-primary-container": "#ff9da0",
+              "surface-variant": "#e5e2e1",
+              "on-secondary-container": "#785300",
+              "on-background": "#1c1b1b",
+              "inverse-on-surface": "#f3f0ef",
+              "on-primary-fixed": "#40000b",
+              "on-tertiary-container": "#85c59e",
+              "on-surface": "#1c1b1b",
+              "secondary-fixed-dim": "#f3be65",
+              "on-primary": "#ffffff",
+              "surface-dim": "#dcd9d9",
+              "on-secondary-fixed": "#281900",
+              "on-tertiary-fixed-variant": "#0c5133",
+              "on-primary-fixed-variant": "#881c2b",
+              "surface-container": "#f0eded",
+              "surface-container-high": "#eae7e7",
+              "outline-variant": "#debfbf",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "margin-mobile": "16px",
+              "unit-sm": "8px",
+              "unit-lg": "24px",
+              "unit-md": "16px",
+              "container-max": "1280px",
+              "unit-xl": "48px",
+              "unit-xs": "4px",
+              gutter: "24px",
+              "margin-desktop": "64px",
+            },
+            fontFamily: {
+              "headline-xl": ["Plus Jakarta Sans"],
+              "label-md": ["Inter"],
+              "body-md": ["Inter"],
+              "headline-md": ["Plus Jakarta Sans"],
+              "headline-lg": ["Plus Jakarta Sans"],
+              "body-sm": ["Inter"],
+              "headline-lg-mobile": ["Plus Jakarta Sans"],
+              "body-lg": ["Inter"],
+              "sublabel-sw": ["Inter"],
+            },
+            fontSize: {
+              "headline-xl": [
+                "48px",
+                {
+                  lineHeight: "56px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-md": [
+                "12px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-md": [
+                "16px",
+                {
+                  lineHeight: "24px",
+                  fontWeight: "400",
+                },
+              ],
+              "headline-md": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-sm": [
+                "14px",
+                {
+                  lineHeight: "20px",
+                  fontWeight: "400",
+                },
+              ],
+              "headline-lg-mobile": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  fontWeight: "700",
+                },
+              ],
+              "body-lg": [
+                "18px",
+                {
+                  lineHeight: "28px",
+                  fontWeight: "400",
+                },
+              ],
+              "sublabel-sw": [
+                "11px",
+                {
+                  lineHeight: "14px",
+                  fontWeight: "500",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-surface-container-lowest text-on-surface h-screen overflow-hidden flex flex-col font-body-md text-body-md"
+  >
+    <!-- Minimal Header for Transactional Flow (Global Nav Suppressed) -->
+    <header
+      class="h-16 border-b border-outline-variant bg-surface flex items-center justify-between px-unit-lg shrink-0 z-10 relative shadow-[0_4px_12px_rgba(0,0,0,0.02)]"
+    >
+      <div class="flex items-center gap-6">
+        <button
+          class="text-primary font-label-md flex items-center gap-2 hover:bg-surface-container-high px-3 py-2 rounded-lg transition-colors"
+        >
+          <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+          Rudisheni
+        </button>
+        <div class="h-6 w-px bg-outline-variant"></div>
+        <div>
+          <h1
+            class="font-headline-md text-headline-md text-on-surface tracking-tight"
+          >
+            Data Extraction Workspace
+          </h1>
+          <p class="font-sublabel-sw text-sublabel-sw text-on-surface-variant">
+            Mradi wa Ardhi Verification Pipeline
+          </p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <span
+          class="font-label-md text-label-md text-on-surface-variant bg-surface-container px-3 py-1.5 rounded-full border border-outline-variant"
+          >Step 2 of 4</span
+        >
+        <button
+          class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors px-2"
+        >
+          Cancel Verification
+        </button>
+      </div>
+    </header>
+    <!-- Main Split Workspace -->
+    <main class="flex-1 flex overflow-hidden w-full max-w-[1920px] mx-auto">
+      <!-- Left Pane: Document Viewer (60%) -->
+      <section
+        class="w-[60%] flex flex-col border-r border-outline-variant bg-surface-container-low relative"
+      >
+        <!-- Viewer Toolbar -->
+        <div
+          class="h-14 border-b border-outline-variant bg-surface-bright flex items-center justify-between px-unit-md shrink-0 shadow-[0_2px_4px_rgba(0,0,0,0.02)] z-10 relative"
+        >
+          <div
+            class="font-label-md text-label-md text-on-surface flex items-center gap-2 bg-surface-container-highest px-3 py-1.5 rounded-md border border-outline-variant"
+          >
+            <span
+              class="material-symbols-outlined text-[18px] text-on-surface-variant"
+              >description</span
+            >
+            Title_Deed_Scan_45920.pdf
+          </div>
+          <div
+            class="flex items-center gap-1 bg-surface border border-outline-variant rounded-lg p-1"
+          >
+            <button
+              class="p-1.5 hover:bg-surface-container rounded-md text-on-surface-variant transition-colors"
+              title="Zoom Out"
+            >
+              <span class="material-symbols-outlined text-[20px]"
+                >zoom_out</span
+              >
+            </button>
+            <span
+              class="font-label-md text-label-md text-on-surface w-12 text-center select-none"
+              >125%</span
+            >
+            <button
+              class="p-1.5 hover:bg-surface-container rounded-md text-on-surface-variant transition-colors"
+              title="Zoom In"
+            >
+              <span class="material-symbols-outlined text-[20px]">zoom_in</span>
+            </button>
+            <div class="w-px h-5 bg-outline-variant mx-1"></div>
+            <button
+              class="p-1.5 hover:bg-surface-container rounded-md text-on-surface-variant transition-colors bg-surface-container-high"
+              title="Pan Tool"
+            >
+              <span class="material-symbols-outlined text-[20px]"
+                >pan_tool</span
+              >
+            </button>
+            <button
+              class="p-1.5 hover:bg-surface-container rounded-md text-on-surface-variant transition-colors"
+              title="Fit to Screen"
+            >
+              <span class="material-symbols-outlined text-[20px]"
+                >fit_screen</span
+              >
+            </button>
+          </div>
+        </div>
+        <!-- Document Canvas -->
+        <div
+          class="flex-1 overflow-auto p-unit-lg flex justify-center items-start bg-[#E5E2E1] relative"
+          style="
+            background-image: radial-gradient(#dcd9d9 1px, transparent 1px);
+            background-size: 16px 16px;
+          "
+        >
+          <div
+            class="relative shadow-[0_10px_20px_rgba(0,0,0,0.08)] bg-surface-bright w-full max-w-4xl border border-outline-variant mt-unit-md"
+          >
+            <!-- Placeholder Image for Document -->
+            <img
+              alt="Scanned Title Deed Document"
+              class="w-full h-auto block opacity-95 sepia-[.15] contrast-125"
+              data-alt="A high-resolution top-down scan of an official Kenyan land title deed document resting on a clean, bone-white digital surface. The document features intricate institutional watermarks, formal typed text, and official stamps. The lighting is even and flat, typical of a professional document scanner, maintaining a bright, modern, and clinical aesthetic. The overall color palette is predominantly white and off-white with crisp black text and subtle red official seals, fitting a secure fintech verification system."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvN0diLkNqu7rQLBbYQGFiE5c7fwLZ6sBm3lDBFaoANGe-dfQTlROOL2SRc9WpZVv-ontRq41wtquORi9T2OTqH6oTq2kPuEkSj2FoLyyOdbY0Oa8O7ObhBHR2AsBwvm8Y1YfV3_rZp7KMRiP4-KE3rI0AM0Yodd6bdnhkoTukJW8CuRW03W_3OHc4pxMsdawYV2VyMNRpQc_H0AuN13Q-0RmS1aBy9oYrGA7lc-_EKr1KrjeWTcZ4-WlE0gawpT5NgALy9C_SnS4"
+            />
+            <!-- Bounding Boxes overlaying data (Simulated Extraction Areas) -->
+            <!-- Parcel Number Box -->
+            <div
+              class="absolute top-[18%] left-[15%] w-[28%] h-[3.5%] border-2 border-primary bg-primary/10 rounded-[2px] shadow-[0_0_8px_rgba(139,30,45,0.2)] flex items-start justify-end p-1 group cursor-pointer hover:bg-primary/20 transition-colors"
+            >
+              <span
+                class="font-sublabel-sw text-[9px] text-primary bg-surface/90 px-1 rounded shadow-sm opacity-0 group-hover:opacity-100 transition-opacity"
+                >Parcel No.</span
+              >
+            </div>
+            <!-- Owner Box -->
+            <div
+              class="absolute top-[26%] left-[15%] w-[45%] h-[3.5%] border-2 border-primary bg-primary/10 rounded-[2px] shadow-[0_0_8px_rgba(139,30,45,0.2)] flex items-start justify-end p-1 group cursor-pointer hover:bg-primary/20 transition-colors"
+            >
+              <span
+                class="font-sublabel-sw text-[9px] text-primary bg-surface/90 px-1 rounded shadow-sm opacity-0 group-hover:opacity-100 transition-opacity"
+                >Owner</span
+              >
+            </div>
+            <!-- Acreage Box -->
+            <div
+              class="absolute top-[34%] left-[15%] w-[18%] h-[3.5%] border-2 border-tertiary-container bg-tertiary-container/10 rounded-[2px] shadow-[0_0_8px_rgba(15,83,52,0.2)] flex items-start justify-end p-1 group cursor-pointer hover:bg-tertiary-container/20 transition-colors"
+            >
+              <span
+                class="font-sublabel-sw text-[9px] text-tertiary-container bg-surface/90 px-1 rounded shadow-sm opacity-0 group-hover:opacity-100 transition-opacity"
+                >Acreage</span
+              >
+            </div>
+            <!-- Reg Date Box -->
+            <div
+              class="absolute top-[42%] left-[15%] w-[22%] h-[3.5%] border-2 border-error bg-error/10 rounded-[2px] shadow-[0_0_8px_rgba(186,26,26,0.2)] flex items-start justify-end p-1 group cursor-pointer hover:bg-error/20 transition-colors animate-pulse"
+            >
+              <span
+                class="font-sublabel-sw text-[9px] text-error bg-surface/90 px-1 rounded shadow-sm opacity-0 group-hover:opacity-100 transition-opacity"
+                >Reg Date</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Right Pane: Editable Form (40%) -->
+      <section
+        class="w-[40%] flex flex-col bg-surface-bright relative shadow-[-4px_0_16px_rgba(0,0,0,0.03)] z-20"
+      >
+        <!-- Form Header -->
+        <div
+          class="p-unit-lg border-b border-outline-variant shrink-0 bg-surface"
+        >
+          <h2
+            class="font-headline-lg text-headline-lg text-on-surface mb-2 tracking-tight"
+          >
+            Extracted Details
+          </h2>
+          <p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+            Review the AI-extracted information from the document. Correct any
+            fields if necessary before proceeding.
+          </p>
+        </div>
+        <!-- Form Content -->
+        <div class="flex-1 overflow-y-auto p-unit-lg flex flex-col gap-unit-md">
+          <!-- Field: Parcel No -->
+          <div
+            class="flex flex-col gap-2 bg-surface p-4 rounded-xl border border-outline-variant shadow-sm focus-within:border-primary focus-within:shadow-[0_4px_12px_rgba(139,30,45,0.08)] transition-all"
+          >
+            <div class="flex justify-between items-end mb-1">
+              <label
+                class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider"
+                >Parcel Number</label
+              >
+              <span
+                class="font-sublabel-sw text-sublabel-sw text-tertiary-container flex items-center gap-1 bg-tertiary-fixed/40 px-2 py-0.5 rounded-full border border-tertiary-fixed-dim"
+                ><span class="material-symbols-outlined text-[14px]"
+                  >check_circle</span
+                >
+                98% Confidence</span
+              >
+            </div>
+            <div class="relative">
+              <input
+                class="w-full bg-transparent border-b-2 border-outline rounded-none px-1 py-2 font-headline-md text-[20px] text-on-surface focus:border-primary focus:ring-0 transition-all outline-none"
+                type="text"
+                value="LR-45920/11"
+              />
+              <button
+                class="absolute right-2 top-2 text-primary opacity-50 hover:opacity-100 transition-opacity"
+                title="View Source on Document"
+              >
+                <span class="material-symbols-outlined"
+                  >center_focus_strong</span
+                >
+              </button>
+            </div>
+          </div>
+          <!-- Field: Owner -->
+          <div
+            class="flex flex-col gap-2 bg-surface p-4 rounded-xl border border-outline-variant shadow-sm focus-within:border-primary focus-within:shadow-[0_4px_12px_rgba(139,30,45,0.08)] transition-all"
+          >
+            <div class="flex justify-between items-end mb-1">
+              <label
+                class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider"
+                >Registered Owner</label
+              >
+              <span
+                class="font-sublabel-sw text-sublabel-sw text-secondary flex items-center gap-1 bg-secondary-fixed/40 px-2 py-0.5 rounded-full border border-secondary-fixed-dim"
+                ><span class="material-symbols-outlined text-[14px]"
+                  >warning</span
+                >
+                75% Confidence</span
+              >
+            </div>
+            <div class="relative">
+              <input
+                class="w-full bg-transparent border-b-2 border-outline rounded-none px-1 py-2 font-headline-md text-[20px] text-on-surface focus:border-primary focus:ring-0 transition-all outline-none"
+                type="text"
+                value="John Doe Mutisya"
+              />
+              <button
+                class="absolute right-2 top-2 text-primary opacity-50 hover:opacity-100 transition-opacity"
+                title="View Source on Document"
+              >
+                <span class="material-symbols-outlined"
+                  >center_focus_strong</span
+                >
+              </button>
+            </div>
+          </div>
+          <!-- Field: Acreage -->
+          <div
+            class="flex flex-col gap-2 bg-surface p-4 rounded-xl border border-outline-variant shadow-sm focus-within:border-primary focus-within:shadow-[0_4px_12px_rgba(139,30,45,0.08)] transition-all"
+          >
+            <div class="flex justify-between items-end mb-1">
+              <label
+                class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider"
+                >Acreage</label
+              >
+              <span
+                class="font-sublabel-sw text-sublabel-sw text-tertiary-container flex items-center gap-1 bg-tertiary-fixed/40 px-2 py-0.5 rounded-full border border-tertiary-fixed-dim"
+                ><span class="material-symbols-outlined text-[14px]"
+                  >check_circle</span
+                >
+                95% Confidence</span
+              >
+            </div>
+            <div class="relative">
+              <input
+                class="w-full bg-transparent border-b-2 border-outline rounded-none px-1 py-2 font-headline-md text-[20px] text-on-surface focus:border-primary focus:ring-0 transition-all outline-none"
+                type="text"
+                value="0.25 HA"
+              />
+              <button
+                class="absolute right-2 top-2 text-primary opacity-50 hover:opacity-100 transition-opacity"
+                title="View Source on Document"
+              >
+                <span class="material-symbols-outlined"
+                  >center_focus_strong</span
+                >
+              </button>
+            </div>
+          </div>
+          <!-- Field: County -->
+          <div
+            class="flex flex-col gap-2 bg-surface p-4 rounded-xl border border-outline-variant shadow-sm focus-within:border-primary focus-within:shadow-[0_4px_12px_rgba(139,30,45,0.08)] transition-all"
+          >
+            <div class="flex justify-between items-end mb-1">
+              <label
+                class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider"
+                >County</label
+              >
+              <span
+                class="font-sublabel-sw text-sublabel-sw text-tertiary-container flex items-center gap-1 bg-tertiary-fixed/40 px-2 py-0.5 rounded-full border border-tertiary-fixed-dim"
+                ><span class="material-symbols-outlined text-[14px]"
+                  >check_circle</span
+                >
+                99% Confidence</span
+              >
+            </div>
+            <div class="relative">
+              <input
+                class="w-full bg-transparent border-b-2 border-outline rounded-none px-1 py-2 font-headline-md text-[20px] text-on-surface focus:border-primary focus:ring-0 transition-all outline-none"
+                type="text"
+                value="Kiambu"
+              />
+              <button
+                class="absolute right-2 top-2 text-primary opacity-50 hover:opacity-100 transition-opacity"
+                title="View Source on Document"
+              >
+                <span class="material-symbols-outlined"
+                  >center_focus_strong</span
+                >
+              </button>
+            </div>
+          </div>
+          <!-- Field: Reg Date (Low Confidence Example) -->
+          <div
+            class="flex flex-col gap-2 bg-error-container/20 p-4 rounded-xl border border-error/40 shadow-sm focus-within:border-error focus-within:shadow-[0_4px_12px_rgba(186,26,26,0.08)] transition-all"
+          >
+            <div class="flex justify-between items-end mb-1">
+              <label
+                class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider"
+                >Registration Date</label
+              >
+              <span
+                class="font-sublabel-sw text-sublabel-sw text-on-error-container flex items-center gap-1 bg-error-container px-2 py-0.5 rounded-full border border-outline-variant"
+                ><span class="material-symbols-outlined text-[14px]"
+                  >error</span
+                >
+                45% Confidence</span
+              >
+            </div>
+            <div class="relative">
+              <input
+                class="w-full bg-transparent border-b-2 border-error rounded-none px-1 py-2 font-headline-md text-[20px] text-on-surface focus:border-error focus:ring-0 transition-all outline-none"
+                type="text"
+                value="12-04-199"
+              />
+              <p
+                class="font-label-md text-[11px] text-error mt-2 flex items-center gap-1"
+              >
+                <span class="material-symbols-outlined text-[14px]"
+                  >warning</span
+                >
+                Please verify missing digit in year.
+              </p>
+              <button
+                class="absolute right-2 top-2 text-error opacity-80 hover:opacity-100 transition-opacity"
+                title="View Source on Document"
+              >
+                <span class="material-symbols-outlined"
+                  >center_focus_strong</span
+                >
+              </button>
+            </div>
+          </div>
+          <div class="h-8"></div>
+          <!-- Spacer for scrolling -->
+        </div>
+        <!-- Footer CTA -->
+        <div
+          class="p-unit-lg border-t border-outline-variant bg-surface shrink-0 shadow-[0_-4px_16px_rgba(0,0,0,0.02)] relative z-10"
+        >
+          <button
+            class="w-full bg-primary-container text-on-primary-container font-headline-md text-[18px] py-4 rounded-xl hover:bg-primary transition-colors flex justify-center items-center gap-3 shadow-[0_4px_8px_rgba(139,30,45,0.2)] active:scale-[0.98]"
+          >
+            Looks right — continue
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
