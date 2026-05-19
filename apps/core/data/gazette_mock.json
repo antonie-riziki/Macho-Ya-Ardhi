@@ -1,0 +1,5 @@
+[
+  {"parcel_number":"KJD/Kaputiei/1234","county":"Kajiado","issue":"Lost title notice and ownership dispute","notice_date":"2024-08-10","source":"Kenya Gazette Vol. CXXVI","severity":"HIGH"},
+  {"parcel_number":"Nairobi/Block/82/733","county":"Nairobi","issue":"Court injunction over transfer","notice_date":"2023-11-21","source":"Kenya Gazette Legal Notice","severity":"HIGH"},
+  {"parcel_number":"LR/209/2489","county":"Nairobi","issue":"Fraud investigation marker","notice_date":"2025-01-09","source":"Public Land Bulletin","severity":"MEDIUM"}
+]

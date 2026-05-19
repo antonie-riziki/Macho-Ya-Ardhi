@@ -24,10 +24,10 @@ sys.path.insert(0, str(BASE_DIR.parent))
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-txp)&k#&50bvci%s3l%9vw%usqp$=7n2pzcaboku@a$xyxwz90"
+SECRET_KEY = os.getenv("SECRET_KEY", "django-insecure-demo")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG", "True").lower() == "true"
 
 ALLOWED_HOSTS = ["*"]
 
@@ -127,4 +127,8 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 # Third Party API Keys
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+GOOGLE_CLOUD_PROJECT = os.getenv("GOOGLE_CLOUD_PROJECT")
+GOOGLE_APPLICATION_CREDENTIALS = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
+VERTEX_AI_LOCATION = os.getenv("VERTEX_AI_LOCATION")
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
